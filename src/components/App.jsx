@@ -1,16 +1,18 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
+import React, { Component } from "react";
+import { Statistics } from "./Statistics/Statistics";
+
+export class App extends Component { 
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  }
+
+  updateCount = state => { 
+    this.setState(prevState => ({ [state]: prevState[state] + 1 }));
+  };
+
+  countTotalFeedback = () =>
+    Object.values(this.state).reduce((acc, value) => acc + value, 0);
+
 };
