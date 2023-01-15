@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import './Feedback.module.css';
  
-export const FeedbackOptions = ({ }) => {
+export const FeedbackOptions = ({ options, onLeaveFeedback}) => {
     const stateArr = Object.keys(options);
 
     return (
@@ -11,7 +11,10 @@ export const FeedbackOptions = ({ }) => {
                     key={option}
                     type="button"
                     name={option}
-                    onClick={ () => onLeaveFeedback(option)}
+                    onClick={() => onLeaveFeedback(option)}
+                >
+                    {option}
+                </button>
             ))}
         </div>
     );
